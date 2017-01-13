@@ -153,6 +153,8 @@ func fuzzValueFor(kind reflect.Kind) reflect.Value {
 	case reflect.Bool:
 		val := r.Intn(2) > 0
 		return reflect.ValueOf(val)
+	case reflect.Uint, reflect.Uint32, reflect.Uint64:
+		return reflect.ValueOf(r.Uint32())
 	}
 
 	return reflect.ValueOf("")
